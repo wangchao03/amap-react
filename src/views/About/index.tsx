@@ -2,7 +2,7 @@ import React from 'react';
 
 const About: React.FC= () => {
   return (
-    <div>About page</div>
+    <div>可以么</div>
   );
 };
 
