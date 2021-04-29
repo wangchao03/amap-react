@@ -9,10 +9,10 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 const Home = React.lazy(
-  () => import(/* webpackChunkName: "Dashboard" */ '@/views/Home')
+  () => import(/* webpackChunkName: "Home" */ '@/views/Home')
 );
 const About = React.lazy(
-  () => import(/* webpackChunkName: "Dashboard" */ '@/views/About')
+  () => import(/* webpackChunkName: "About" */ '@/views/About')
 );
 const WithSkeleton = <Skeleton active={true} />
 
