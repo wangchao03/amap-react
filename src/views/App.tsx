@@ -1,15 +1,43 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import './App.scss';
-import { Button } from 'antd';
+import Layout from '../layout';
+import { Skeleton } from "antd"
+import {
+  Switch,
+  Route,
+  Redirect,
+  BrowserRouter as Router,
+} from 'react-router-dom';
+const Home = React.lazy(
+  () => import(/* webpackChunkName: "Dashboard" */ '@/views/Home')
+);
+const About = React.lazy(
+  () => import(/* webpackChunkName: "Dashboard" */ '@/views/About')
+);
+const WithSkeleton = <Skeleton active={true} />
 
-
-function App() {
+const App: React.FC= () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Button type="primary">Button</Button>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route
+          path="/"
+          render={() => (
+            <Layout>
+              <Suspense fallback={WithSkeleton}>
+              <Switch>
+                <Route path="/" exact>
+                  <Redirect to="/home" />
+                </Route>
+                <Route path="/home" component={Home} />
+                <Route path="/about" component={About} />
+              </Switch>
+              </Suspense>
+            </Layout>
+          )}
+        />
+      </Switch>
+    </Router>
   );
 }
 
