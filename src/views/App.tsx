@@ -9,6 +9,7 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 import NotFount from '@/views/error/ErrorPage'
+import Login from '@/views/Login/login'
 const Home = React.lazy(
   () => import(/* webpackChunkName: "Home" */ '@/views/Home')
 );
@@ -22,6 +23,7 @@ const App: React.FC= () => {
     <Router>
       <Switch>
         <Route path="/404" component={NotFount}></Route>
+        <Route path="/login" component={Login}></Route>
         <Route
           path="/"
           render={() => (
