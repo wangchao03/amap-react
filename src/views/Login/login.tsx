@@ -1,25 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './login.scss';
 import { Button, Form, Input } from "antd";
-import { GithubOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 const FormItem = Form.Item;
-const Login: React.FC = () => {
-  const handleSubmit = (values: any) => {};
-  const gitHub = () => {};
+const Login: React.FC = (props:any) => {
+  const { history } = props;
+  const [admin, setAdmin] = useState({userName:'', password: ''});
+
+  useEffect(() => {
+    const user = admin || localStorage.getItem('user');
+    if (user) {
+      history.push('/home')
+    }
+  })
+  const handleSubmit = (values: any) => {
+    console.log('success', values);
+    if (checkUser(values)) {
+      setAdmin(values);
+      localStorage.setItem('user', values);
+    }
+  };
+  const handleSubmitFailed = (values: any) => {
+    console.log('Failed', values)  
+  }
+  const checkUser = (user:any) => {
+    return Object.keys(user).some((key) => user[key])
+  }
   return (
     <div className="login vh_100 vertical_flex_center">
       <div className="login-form px_40 py_40">
         <div className="login-logo">
-          <span>React Admin</span>
+          <span>Amap-React</span>
         </div>
-        <Form onFinish={handleSubmit} style={{ maxWidth: "300px" }}>
+        <Form onFinish={handleSubmit} onFinishFailed={handleSubmitFailed} style={{ maxWidth: "300px" }}>
           <FormItem
             name="userName"
             rules={[{ required: true, message: "请输入用户名!" }]}
           >
             <Input
               prefix={<UserOutlined size={13} />}
-              placeholder="管理员输入admin, 游客输入guest"
+              placeholder="请输入用户名!"
             />
           </FormItem>
           <FormItem
@@ -29,7 +49,7 @@ const Login: React.FC = () => {
             <Input
               prefix={<LockOutlined size={13} />}
               type="password"
-              placeholder="管理员输入admin, 游客输入guest"
+              placeholder="请输入密码!"
             />
           </FormItem>
           <FormItem>
@@ -44,13 +64,6 @@ const Login: React.FC = () => {
             >
               登录
             </Button>
-            <p style={{ display: "flex", justifyContent: "space-between" }}>
-              <span>或 现在就去注册!</span>
-              <span onClick={gitHub}>
-                <GithubOutlined />
-                (第三方登录)
-              </span>
-            </p>
           </FormItem>
         </Form>
       </div>

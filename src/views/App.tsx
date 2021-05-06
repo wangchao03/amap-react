@@ -31,7 +31,7 @@ const App: React.FC= () => {
               <Suspense fallback={WithSkeleton}>
               <Switch>
                 <Route path="/" exact>
-                  <Redirect to="/home" />
+                  <Redirect to="/login" />
                 </Route>
                 <Route path="/home" component={Home} />
                 <Route path="/about" component={About} />
