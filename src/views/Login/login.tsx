@@ -8,7 +8,7 @@ const Login: React.FC = (props:any) => {
   const [admin, setAdmin] = useState({userName:'', password: ''});
 
   useEffect(() => {
-    const user = admin || localStorage.getItem('user');
+    const user = admin.userName || localStorage.getItem('user');
     if (user) {
       history.push('/home')
     }
