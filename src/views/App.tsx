@@ -8,6 +8,7 @@ import {
   Redirect,
   BrowserRouter as Router,
 } from 'react-router-dom';
+import NotFount from '@/views/error/ErrorPage'
 const Home = React.lazy(
   () => import(/* webpackChunkName: "Home" */ '@/views/Home')
 );
@@ -20,6 +21,7 @@ const App: React.FC= () => {
   return (
     <Router>
       <Switch>
+        <Route path="/404" component={NotFount}></Route>
         <Route
           path="/"
           render={() => (

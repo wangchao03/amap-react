@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import img from "@/style/imgs/404.png";
+// import img from "@/style/imgs/404.png";
 
 const ErrorPage: React.FC = () => {
   const [animated, setAnimated] = useState("");
   return (
     <div
-      className="center"
-      style={{ height: "100%", background: "#ececec", overflow: "hidden" }}
+      className="center vh_100 vertical_flex_center"
+      style={{ background: "#ececec", overflow: "hidden" }}
     >
       <img
-        src={img}
+        src={require('../../style/imgs/404.png')}
         alt="404"
         className={`animated swing ${animated}`}
         onMouseEnter={() => {
