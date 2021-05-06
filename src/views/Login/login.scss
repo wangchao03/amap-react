@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
   background: #f3f3f3;
   .login-form{
     width: 320px;
@@ -41,6 +40,6 @@
   transform: rotate(45deg);
   left: 50px;
   position: absolute;
-  background: url('./imgs/installer.png') no-repeat;
+  // background: url('./imgs/installer.png') no-repeat;
   background-size: cover;
 }

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
+import './login.scss';
 import { Button, Form, Input } from "antd";
 import { GithubOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
 const FormItem = Form.Item;
-
 const Login: React.FC = () => {
   const handleSubmit = (values: any) => {};
   const gitHub = () => {};
