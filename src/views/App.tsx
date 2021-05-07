@@ -35,6 +35,7 @@ const App: React.FC= () => {
                 </Route>
                 <Route path="/home" component={Home} />
                 <Route path="/about" component={About} />
+                <Redirect to="/404" />
               </Switch>
               </Suspense>
             </Layout>
