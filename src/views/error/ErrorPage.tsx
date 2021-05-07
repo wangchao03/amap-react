@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import img from "@/style/imgs/404.png";
+import img from "@/style/imgs/404.png";
 
 const ErrorPage: React.FC = () => {
   const [animated, setAnimated] = useState("");
@@ -9,7 +9,7 @@ const ErrorPage: React.FC = () => {
       style={{ background: "#ececec", overflow: "hidden" }}
     >
       <img
-        src={require('../../style/imgs/404.png')}
+        src={img}
         alt="404"
         className={`animated swing ${animated}`}
         onMouseEnter={() => {
